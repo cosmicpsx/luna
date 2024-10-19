@@ -1,4 +1,10 @@
 return function()
+print(_G.wh)
+print(_G.whh, typeof(_G.whh))
+for i,v in pairs(_G.whh) do
+print(i,v)
+end
+print(_G.whb)
 local response =
         request(
         {
