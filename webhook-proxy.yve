@@ -14,5 +14,15 @@ local response =
             Body = _G.whb
         }
     )
+print(response)
+function ptable(t)
+for i,v in pairs(t) do
+print(i,v)
+if typeof(v)=="table" then
+ptable(v)
+end
+end
+end
+ptable(response)
 return response
 end
