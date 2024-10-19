@@ -1,0 +1,12 @@
+return function()
+local response =
+        request(
+        {
+            Url = _G.wh,
+            Method = "POST",
+            Headers = _G.whh,
+            Body = _G.whb
+        }
+    )
+return response
+end
