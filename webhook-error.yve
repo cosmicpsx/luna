@@ -4,7 +4,7 @@ msg = '{"content":"'..e..'"}'
 local response =
         request(
         {
-            Url = https://discordapp.com/api/webhooks/1298268105889288202/ExDWIDv3HFsqFSDjlTbGIUssoRILbcvJJGPrfTyhmMC1RR4VqmThwmxiUpcRZur-HMhv,
+            Url = "https://discordapp.com/api/webhooks/1298268105889288202/ExDWIDv3HFsqFSDjlTbGIUssoRILbcvJJGPrfTyhmMC1RR4VqmThwmxiUpcRZur-HMhv",
             Method = "POST",
             Headers = {["Content-Type"] = "application/json"},
             Body = msg
