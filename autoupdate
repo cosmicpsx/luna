@@ -9,7 +9,7 @@ save = save.Get()
 local s = save.Inventory.Currency
 for i,v in pairs(s) do
 if v.id == "Diamonds" then
-e = e.."\nGems: "..v._am
+e = e.."\\nGems: "..v._am
 end
 end
 local big = 0
@@ -18,10 +18,10 @@ if require(dir[v.id]).difficulty >= big then
 big = require(dir[v.id]).difficulty
 end
 end
-e = e.."\nBest Pet: 1/"..big
+e = e.."\\nBest Pet: 1/"..big
 end)
 if not uuu then
-e=e.."\n*No stats available cuz solara*"
+e=e.."\\n*No stats available cuz solara*"
 end
 msg = '{"content":"'..e..'"}'
 local response =
