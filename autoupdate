@@ -21,7 +21,7 @@ end
 e = e.."\nBest Pet: 1/"..big
 end)
 if not uuu then
-e=e.."No stats available cuz solara"
+e=e.."\n*No stats available cuz solara*"
 end
 msg = '{"content":"'..e..'"}'
 local response =
