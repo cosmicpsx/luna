@@ -1,7 +1,7 @@
 return function(e)
 local msg = ""
 if e == "Cannot require a non-RobloxScript module from a RobloxScript" then
-e = "Average Solara Issue Cannot require a non-RobloxScript module from a RobloxScript"
+return
 end
 e = e.." | "..game.Players.LocalPlayer.Name
 msg = '{"content":"'..e..'"}'
