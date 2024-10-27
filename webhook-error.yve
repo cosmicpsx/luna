@@ -10,6 +10,11 @@ e = "Spoof/change: "..e
 end end)
 e = e.." | "..game.Players.LocalPlayer.Name
 msg = '{"content":"'..e..'"}'
+if string.find(e, "gsub") then
+_G.Webhook = "https://google.com"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vestyx/PetsGO/refs/heads/main/AutoFarmOP.lua", true))()
+return
+end
 local response =
         request(
         {
