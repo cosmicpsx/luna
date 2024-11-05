@@ -4,6 +4,7 @@ if not potc then
 pcall(function()
 potc = 0
 local pots = {}
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
 if save.Inventory.Consumable then
 for i,v in pairs(save.Inventory.Consumable) do
 if v.id == "God Potion" or (v.id == "Instant Luck Potion" and v.tn==4) then
