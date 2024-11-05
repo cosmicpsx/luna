@@ -8,7 +8,7 @@ local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).G
 if save.Inventory.Consumable then
 for i,v in pairs(save.Inventory.Consumable) do
 if v.id == "God Potion" or (v.id == "Instant Luck Potion" and v.tn==4) then
-pots[i]=v._am
+pots[i]=v._am or 1
 potc=potc+1
 end
 end
