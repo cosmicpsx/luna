@@ -1,6 +1,6 @@
 return function(dh,pn,gn,dp,potc)
 if not dp then dp = 0 end
-if not potc then
+--[[if not potc then
 pcall(function()
 potc = 0
 local pots = {}
@@ -36,7 +36,7 @@ end
 end
 end
 end)
-end
+end]]
 if _G.dx then return end
 if tonumber(gn)==100 then gn = 0 end
 local msg = ""
