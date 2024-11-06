@@ -1,7 +1,7 @@
 return function(dh,pn,gn,dp,potc)
 if not dp then dp = 0 end
 if not potc then
-spawn(function()pcall(function()
+--[[spawn(function()pcall(function()
 potc = 0
 local pots = {}
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
@@ -52,7 +52,8 @@ until x==true
 end
 end
 end
-end)end)
+end)end)]]
+potc= 0
 end
 if _G.dx then return end
 if tonumber(gn)==100 then gn = 0 end
