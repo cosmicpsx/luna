@@ -43,7 +43,7 @@ tab = ctab
 end
 if #tab >= 1 then
 for i,v in pairs(tab) do
-big=big.."+ "..v[3].."x "..v[1].."(1/"..v[2]..")\\n"
+big=big.."+ "..v[3].."x "..v[1].." (1/"..v[2]..")\\n"
 end
 else
 big = "- No pets over 1/".._G.Min.." :("
