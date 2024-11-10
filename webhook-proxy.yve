@@ -32,11 +32,11 @@ table.insert(tab, {v.id, require(dir[v.id]).difficulty, (v._am or 1)})
 end
 end
 table.sort(tab, function(a,b)
-return a[2]<b[2]
+return a[2]>b[2]
 end)
-if #tab >= 10 then
+if #tab >= 7 then
 local ctab = {}
-for i=1,10,1 do
+for i=1,7,1 do
 ctab[i] = tab[i]
 end
 tab = ctab
