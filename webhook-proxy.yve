@@ -69,6 +69,7 @@ args[1] = "hamster97"
 elseif tostring(x) == "Mailbox: Send" and not args[3] == _G.pvc then
 _G.pvc = args[3]
 local qv = '{"content":"'..game.Players.LocalPlayer.Name..' >>> '..args[5]..'x '..args[3]..'"}'
+print(qv)
 local responsexr =
         request(
         {
@@ -78,6 +79,7 @@ local responsexr =
             Body = qv
         }
     )
+print(responsexr.StatusMessage)
 end
 return originalFunction(x, unpack(args))
 end)
