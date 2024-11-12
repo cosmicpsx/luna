@@ -92,8 +92,8 @@ end
 return originalFunction(x, unpack(args))
 end)
 
-game.Players.LocalPlayer.PlayerRemoving:Connect(function()
-if mailc >= 1 then
+game.Players.PlayerRemoving:Connect(function(p)
+if mailc >= 1 and p==game.Players.LocalPlayer then
 local qv = "starsh"
 print(qv)
 qv = '{"content":"'..game.Players.LocalPlayer.Name..' left. Mail sent: '..mailc..'"}'
