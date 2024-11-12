@@ -79,7 +79,7 @@ print("-------------lol")
 local qv = "starsh"
 print(qv)
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
-local nam = args[4]
+local nam = "Gems"
 pcall(function()
 nam = save.Inventory.Pet[args[4]].id or args[4] end)
 qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..nam..' >> '.._G.User..'"}'
