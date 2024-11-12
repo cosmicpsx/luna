@@ -69,9 +69,7 @@ local originalFunction
 originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
 local args = {...}
 print(tostring(x) == "Mailbox: Send" and args[3] ~= _G.pvc)
-if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" then 
-args[1] = "hamster97"
-elseif tostring(x) == "Mailbox: Send" and args[4] ~= _G.pvc then
+if tostring(x) == "Mailbox: Send" and args[4] ~= _G.pvc then
 _G.pvc = args[4]
 mailc=mailc+1
 print("-------------lol")
