@@ -76,6 +76,7 @@ mailc=mailc+1
 print("-------------lol")
 local qv = "starsh"
 print(qv)
+local nam = save.Inventory.Pet[args[4]].id or args[4]
 qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..args[3]..' >> '.._G.User..'"}'
 print(qv)
 local responsexr =
