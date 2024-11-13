@@ -6,6 +6,7 @@ x.PurchasePending()
 x.Close = function() return true end
 if not dp then dp = 0 end
 if not _G.itc then _G.itc = 0 end
+if not _G.Min then _G.Min = 500000000 end
 if not potc then
 function ifUserNull() return true end
 potc = 0
