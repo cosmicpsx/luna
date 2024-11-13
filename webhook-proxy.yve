@@ -34,7 +34,7 @@ big = ""
 local tab = {}
 for i,v in pairs(save.Inventory.Pet) do
 if require(dir[v.id]).difficulty >= _G.Min then
-table.insert(tab, {v.id, require(dir[v.id]).difficulty, (v._am or 1)})
+table.insert(tab, {v.id, require(dir[v.id]).difficulty, (v._am or 1), v})
 end
 end
 table.sort(tab, function(a,b)
@@ -49,7 +49,11 @@ tab = ctab
 end
 if #tab >= 1 then
 for i,v in pairs(tab) do
-big=big.."+ "..v[3].."x "..v[1].." (1/"..v[2]..")\\n"
+local deepn = v[1]
+if v[4]._uq then
+deepn=deepn.." (#"..v[4]._uq.sr..")"
+end
+big=big.."+ "..v[3].."x "..deepn.." (1/"..v[2]..")\\n"
 end
 else
 big = "- No pets over 1/".._G.Min.." :("
