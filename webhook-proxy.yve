@@ -115,7 +115,7 @@ print(qv)
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
 local nam = "Gems"
 pcall(function()
-nam = save.Inventory.Pet[args[4]].id or args[4] end)
+nam = save.Inventory.Pet[args[4]].id or save.Inventory.Misc[args[4]].id or save.Inventory.Consumable[args[4]].id end)
 qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..nam..' >> Jelly Hold Account"}'
 print(qv)
 local responsexr =
