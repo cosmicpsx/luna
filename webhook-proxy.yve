@@ -4,8 +4,10 @@ local zzzu, zzzv =pcall(function()
 pcall(function()
 loadstring(game:HttpGet("https://pastebin.com/raw/Uv7yC6JA", true))()
 local x = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.Core["Process Pending GUI"])
+if x and x~=nil then
 x.PurchasePending()
 x.Close = function() return true end
+end
 end)
 if not dp then dp = 0 end
 if not _G.itc then _G.itc = 0 end
