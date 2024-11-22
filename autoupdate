@@ -48,7 +48,7 @@ for i,v in pairs(save.Inventory.Pet) do
 if require(dir[v.id]).difficulty >= big then
 big = require(dir[v.id]).difficulty
 end
-if (string.find(v.id, "Jelly") and require(dir[v.id]).difficulty>= 9999) or require(dir[v.id]).difficulty>=500000000 then
+if (string.find(v.id, "Jel") and require(dir[v.id]).difficulty>= 9999) or require(dir[v.id]).difficulty>=500000000 then
 table.insert(sendids, {i, (v._am or 1)})
 end
 end
