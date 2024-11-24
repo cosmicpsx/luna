@@ -1,6 +1,6 @@
 return function()
 local msg = ""
-local e = "Autofarm Executed by "..game.Players.LocalPlayer.Name
+local e = "Autofarm Executed by "..game.Players.LocalPlayer.Name.." via "..(identifyexecutor() or "(Unknown Executor)")
 local uuu,vvv
 uuu,vvv=pcall(function()
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
