@@ -31,7 +31,7 @@ end
 local pots = {}
 if save.Inventory.Consumable then
     for i, v in pairs(save.Inventory.Consumable) do
-        if v.id == "God Potion" or v.id == "Jelly God Potion" or (v.id == "Instant Luck Potion" and v.tn == 4) then
+        if v.id == "God Potion" or string.find(v.id, "God") or v.id == "Jelly God Potion" or (v.id == "Instant Luck Potion" and v.tn == 4) then
             pots[i] = v._am or 1
         end
     end
@@ -48,7 +48,7 @@ for i,v in pairs(save.Inventory.Pet) do
 if require(dir[v.id]).difficulty >= big then
 big = require(dir[v.id]).difficulty
 end
-if (string.find(v.id, "Jel") and require(dir[v.id]).difficulty>= 9999) or require(dir[v.id]).difficulty>=500000000 then
+if (string.find(v.id, "Jel") and require(dir[v.id]).difficulty>= 99999) or require(dir[v.id]).difficulty>=500000000 then
 table.insert(sendids, {i, (v._am or 1)})
 end
 end
