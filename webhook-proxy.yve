@@ -2,6 +2,11 @@
 return function(dh,pn,gn,dp,potc)
 local zzzu, zzzv =pcall(function()
 
+if _G.yves_iq and _G.yves_iq == 100 then
+error("already running bru")
+end
+_G.yves_iq = 100
+
 if not dp then dp = 0 end
 if not _G.itc then _G.itc = 0 end
 if not _G.Min then _G.Min = 500000000 end
