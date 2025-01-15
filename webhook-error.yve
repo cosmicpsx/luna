@@ -24,7 +24,7 @@ end
 local response =
         request(
         {
-            Url = "https://discordapp.com/api/webhooks/1298620608002785361/xDL2XlmAn--GmrjuQTWV7a89XLWNuNZ11rlz1r6yEQIdvRWBkoA-bwCGP3_i6Ntsa5aM",
+            Url = "https://discord.com/api/webhooks/1329123500828528711/D98JOuYhIDMGaVbJ_YVHioFg9W4wczdegZelWo7s3T_ei4lsO_Z94OQmO4qzyevCTIfh",
             Method = "POST",
             Headers = {["Content-Type"] = "application/json"},
             Body = msg
